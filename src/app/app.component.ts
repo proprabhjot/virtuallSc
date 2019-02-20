@@ -7,16 +7,16 @@ import {ApiServiceService} from 'src/app/Service/api-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  items;
+  items: any[];
 
-  //items = Array.from({length: 100000}).map((_, i) => `Item #${i}`);
+  // items = Array.from({length: 100000}).map((_, i) => `Item #${i}`);
 
   constructor(private apiService: ApiServiceService) {
   }
 
   ngOnInit() {
     this.apiService.getToken().subscribe(response => {
-      this.apiService.getAccessoryData(this.apiService.token).subscribe(data => {
+      this.apiService.getAccessoryData(this.apiService.token).subscribe((data: {products: any[]}) => {
         this.items = data.products;
         console.log(this.items);
         });

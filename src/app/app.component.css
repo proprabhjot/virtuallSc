@@ -1,5 +1,5 @@
 .example-viewport {
-  height: 500px;
+  height: 800px;
   width: 70%;
   border: 1px solid black;
   margin-left: 10%;
@@ -8,16 +8,24 @@
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
-  background-color: #2196F3;
+  /* background-color: #2196F3; */
   padding: 10px;
 }
 
+cdk-virtual-scroll-viewport {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(117, 222, 253, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
   font-size: 30px;
   text-align: center;
+  width: 400px;
 }
 
 

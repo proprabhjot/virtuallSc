@@ -1,5 +1,9 @@
 
-<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+<cdk-virtual-scroll-viewport 
+  minBufferPx="900"
+  maxBufferPx="600"
+  itemSize="50"
+  class="example-viewport">
   <div class="grid-container">
     <div *cdkVirtualFor="let item of items; templateCacheSize:10" class="grid-item">{{item.familyName}}</div>
   </div>
