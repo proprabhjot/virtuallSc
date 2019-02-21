@@ -8,18 +8,25 @@ import {ApiServiceService} from 'src/app/Service/api-service.service';
 })
 export class AppComponent implements OnInit {
   items: any[];
-
-  // items = Array.from({length: 100000}).map((_, i) => `Item #${i}`);
+  image: string;
 
   constructor(private apiService: ApiServiceService) {
   }
 
+  getImage(path: any) {
+    const env = 'https://www.t-mobile.com';
+    if (path && path.skus[0] && path.skus[0].images[0] && path.skus[0].images[0].url) {
+      this.image = env + path.skus[0].images[0].url;
+    }
+    return this.image || '';
+  }
+
   ngOnInit() {
     this.apiService.getToken().subscribe(response => {
-      this.apiService.getAccessoryData(this.apiService.token).subscribe((data: {products: any[]}) => {
+      this.apiService.getAccessoryData(this.apiService.token).subscribe((data: { products: any[] }) => {
         this.items = data.products;
         console.log(this.items);
-        });
+      });
     });
   }
 
